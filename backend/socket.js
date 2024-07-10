@@ -7,17 +7,20 @@ import {Message} from './src/modles/message.model.js'
 
 import app from "./app.js"
 import { getConversation } from "./src/helper/getConversation.js"
-
+import dotenv from "dotenv"
+dotenv.config({path:'./.env'})
 
 const server=http.createServer(app);
   
 // console.log("env inside socket" ,process.env.FRONTEND_URL)
 const io=new Server(server,{
     cors:{
-        origin:[process.env.FRONTEND_URL],
+        origin:process.env.FRONTEND_URL,
+        methods:["GET", "POST", "DELETE", "PUT"],
         credentials:true
-    }
+    }          
 })
+
 
 // socket running at "http://localhost:8000/"
 
