@@ -13,13 +13,15 @@ import { getConversation } from "./src/helper/getConversation.js"
 const server=http.createServer(app);
   
 // console.log("env inside socket" ,process.env.FRONTEND_URL)
-const io=new Server(server,{
-    cors:{
-        origin:'https://secrets-chat.vercel.app',
-        methods:["GET", "POST"],
-        credentials:true
-    }          
-})
+// const io=new Server(server,{
+//     cors:{
+//         origin:'https://secrets-chat.vercel.app',
+//         methods:["GET", "POST"],
+//         credentials:true
+//     }          
+// })
+
+const io=new Server(server);
 
 // socket running at "http://localhost:8000/"
 
