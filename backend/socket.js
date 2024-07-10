@@ -14,7 +14,7 @@ const server=http.createServer(app);
 // console.log("env inside socket" ,process.env.FRONTEND_URL)
 const io=new Server(server, {
     cors: {
-        origin: ['https://secrets-chat.vercel.app', process.env.FRONTEND_URL],
+        origin: ['https://secrets-chat.vercel.app', process.env.FRONTEND_URL,"http://localhost:5173"],
         methods:["GET", "POST", "DELETE", "PUT"],
         credentials: true,
         allowedHeaders: ["Content-Type", "Authorization"]

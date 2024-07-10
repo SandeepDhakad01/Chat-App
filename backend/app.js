@@ -10,7 +10,7 @@ dotenv.config({path:'./.env'})
 const app=express()
  
 app.use(cors({
-    origin:[process.env.FRONTEND_URL,'https://secrets-chat.vercel.app'],
+    origin:[process.env.FRONTEND_URL,'https://secrets-chat.vercel.app',"http://localhost:5173"],
     methods:["GET", "POST", "DELETE", "PUT"],
     credentials:true,
     allowedHeaders: ["Content-Type", "Authorization"] 
