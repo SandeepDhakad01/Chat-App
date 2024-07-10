@@ -52,7 +52,7 @@ axios.defaults.withCredentials = true;
 
 useEffect(() => {
   if (user?._id) {
-    const socketConnection = io('http://localhost:8000/', {
+    const socketConnection = io(import.meta.env.VITE_SERVER_URL,{
       auth: {
         userId: user._id
       }

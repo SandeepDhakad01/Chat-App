@@ -26,7 +26,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
-    res.status(404)
+    res.status(200)
        .json({
         message :"Server is running here ..."
        })
