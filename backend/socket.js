@@ -15,7 +15,7 @@ const server=http.createServer(app);
 // console.log("env inside socket" ,process.env.FRONTEND_URL)
 const io=new Server(server,{
     cors:{
-        origin:[process.env.FRONTEND_URL,'https://secrets-chat.vercel.app'],
+        origin:'https://secrets-chat.vercel.app',
         methods:["GET", "POST"],
         credentials:true
     }          
@@ -31,18 +31,14 @@ io.on('connection', async (socket) => {
     //  console.log(socket)
     const userId = socket.handshake.auth.userId;
     if (!userId) {
-        console.error('User ID is missing in handshake auth');
         return;
     }
-    
-    console.log("userId", userId);
+      
     const userRoom = userId.toString();
 
     socket.join(userRoom);
     onlineUsers.add(userRoom);
-    console.log("userRoom", userRoom);
-    console.log("onlineUsers", Array.from(onlineUsers));
-
+ 
     io.emit('onlineUser', Array.from(onlineUsers));
 
     // Handle chat-page event
