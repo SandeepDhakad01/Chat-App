@@ -4,8 +4,8 @@ import cookieParser from "cookie-parser"
 
 import {errorHandler} from "./src/middleware/errorHandler.middleware.js"
 
-// import dotenv from "dotenv"
-// dotenv.config({path:'./.env'})
+import dotenv from "dotenv"
+dotenv.config({path:'./.env'})
 
 const app=express()
  
@@ -16,8 +16,6 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"] 
 }))
 
-
-app.options('*', cors());
 
 
 app.use(cookieParser())

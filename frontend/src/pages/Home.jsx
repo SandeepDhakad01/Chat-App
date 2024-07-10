@@ -52,7 +52,7 @@ axios.defaults.withCredentials = true;
 
 useEffect(() => {
   if (user?._id) {
-    const socketConnection = io(import.meta.env.VITE_SERVER_URL,{
+    const socketConnection = io("https://secretchat-backend.vercel.app/",{
       withCredentials: true,
       auth: {
         userId: user._id
