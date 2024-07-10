@@ -16,12 +16,10 @@ const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
         origin:[process.env.FRONTEND_URL,'https://secrets-chat.vercel.app'],
-        methods:["GET", "POST", "DELETE", "PUT"],
+        methods:["GET", "POST"],
         credentials:true
     }          
 })
-
-// io.options('*', cors());
 
 // socket running at "http://localhost:8000/"
 
