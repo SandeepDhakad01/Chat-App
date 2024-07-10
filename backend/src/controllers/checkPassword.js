@@ -30,7 +30,6 @@ export const checkPassword=asyncHandler(async(req,res,next)=>{
             httpOnly:true,
             secure:true,
             sameSite:'None'
-            
          }
          
          res.cookie('token',token,cookie_options)
