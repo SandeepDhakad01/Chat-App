@@ -1,11 +1,11 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-import dotenv from "dotenv"
 
 import {errorHandler} from "./src/middleware/errorHandler.middleware.js"
 
-dotenv.config({path:'./.env'})
+// import dotenv from "dotenv"
+// dotenv.config({path:'./.env'})
 
 const app=express()
 

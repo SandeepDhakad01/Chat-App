@@ -7,8 +7,8 @@ import {Message} from './src/modles/message.model.js'
 
 import app from "./app.js"
 import { getConversation } from "./src/helper/getConversation.js"
-import dotenv from "dotenv"
-dotenv.config({path:'./.env'})
+// import dotenv from "dotenv"
+// dotenv.config({path:'./.env'})
 
 const server=http.createServer(app);
   
