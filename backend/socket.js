@@ -5,9 +5,16 @@ import {User} from './src/modles/user.model.js'
 import {Conversation} from "./src/modles/conversation.model.js"
 import {Message} from './src/modles/message.model.js'
 
-import app from "./app.js"
+import express from "express"
+
+
+import dotenv from "dotenv"
+dotenv.config({path:'./.env'})
+
+
 import { getConversation } from "./src/helper/getConversation.js"
 
+export const app=express()
 
 const server=http.createServer(app);
   
@@ -184,3 +191,4 @@ io.on('connection', async (socket) => {
 
 
   export default server;
+  
