@@ -11,7 +11,7 @@ import { getConversation } from "./src/helper/getConversation.js"
 
 const server=http.createServer(app);
   
-// console.log("env inside socket" ,process.env.FRONTEND_URL)
+console.log("env inside socket" ,process.env.FRONTEND_URL)
 const io=new Server(server,{
     cors:{
         origin:[process.env.FRONTEND_URL],
