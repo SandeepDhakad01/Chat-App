@@ -21,7 +21,7 @@ const io=new Server(server,{
     }          
 })
 
-io.options('*', cors());
+// io.options('*', cors());
 
 // socket running at "http://localhost:8000/"
 
