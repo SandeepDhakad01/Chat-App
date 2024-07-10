@@ -8,7 +8,6 @@ import {errorHandler} from "./src/middleware/errorHandler.middleware.js"
 // dotenv.config({path:'./.env'})
 
 const app=express()
-
  
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
