@@ -1,0 +1,43 @@
+import express from "express"
+import cors from "cors"
+import cookieParser from "cookie-parser"
+import dotenv from "dotenv"
+
+import {errorHandler} from "./src/middleware/errorHandler.middleware.js"
+
+dotenv.config({path:'./.env'})
+
+const app=express()
+
+ 
+app.use(cors({
+    origin:[process.env.FRONTEND_URL],
+    methods:["GET", "POST", "DELETE", "PUT"],
+    credentials:true,
+    allowedHeaders: ["Content-Type", "Authorization"] 
+}))
+
+app.options('*', cors());
+
+
+app.use(cookieParser())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(express.static('public'))
+
+app.get('/',(req,res)=>{
+    res.status(404)
+       .json({
+        message :"Server is running here ..."
+       })
+       
+})
+
+
+import userRouter from "./src/routes/userRouters.js"
+
+
+app.use('/api/v1/user',userRouter)
+
+app.use(errorHandler)
+export default app;
