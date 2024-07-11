@@ -23,7 +23,6 @@ const io=new Server(server, {
         methods:["GET", "POST", "DELETE", "PUT"],
         credentials: true,
         allowedHeaders: ["Content-Type", "Authorization"],
-        sameSite:'None'
     }
 })
 
