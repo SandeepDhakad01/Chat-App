@@ -1,16 +1,14 @@
 import mongoose from "mongoose"
 import http from "http"
 import {Server} from "socket.io"
+import express from "express"
 import {User} from './src/modles/user.model.js'
 import {Conversation} from "./src/modles/conversation.model.js"
 import {Message} from './src/modles/message.model.js'
 
-import express from "express"
-
 
 import dotenv from "dotenv"
 dotenv.config({path:'./.env'})
-
 
 import { getConversation } from "./src/helper/getConversation.js"
 
@@ -24,7 +22,8 @@ const io=new Server(server, {
         origin: ['https://secrets-chat.vercel.app', process.env.FRONTEND_URL,"http://localhost:5173"],
         methods:["GET", "POST", "DELETE", "PUT"],
         credentials: true,
-        allowedHeaders: ["Content-Type", "Authorization"]
+        allowedHeaders: ["Content-Type", "Authorization"],
+        sameSite:'None'
     }
 })
 
