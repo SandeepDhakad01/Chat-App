@@ -24,17 +24,74 @@ import { getConversation } from "./src/helper/getConversation.js"
 
 export const app=express()
 
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5173",
+   'https://secrets-chat.vercel.app'
+
+];
+
+// CORS middleware for HTTP requests
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin)) {
+//       return callback(null, true);
+//     } else {
+//       return callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true
+// }));
+
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+
+
+app.use(cookieParser())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+  res.status(200)
+    .json({
+      message: "Server is running here ..."
+    })
+
+})
+
+
+import userRouter from "./src/routes/userRouters.js"
+
+
+app.use('/api/v1/user', userRouter)
+
+app.use(errorHandler)
+
 const server=http.createServer(app);
   
+
 // console.log("env inside socket" ,process.env.FRONTEND_URL)
-const io=new Server(server, {
-    cors: {
-        origin: ['https://secrets-chat.vercel.app', process.env.FRONTEND_URL,"http://localhost:5173"],
-        methods:["GET", "POST", "DELETE", "PUT"],
-        credentials: true,
-        allowedHeaders: ["Content-Type", "Authorization"],
-    }
-})
+const io = new Server(server, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'DELETE', 'PUT'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }
+});
 
 
 
@@ -200,38 +257,6 @@ io.on('connection', async (socket) => {
 
   export default server;
   
-
-
-
-app.use(cors({
-  origin: [process.env.FRONTEND_URL, 'https://secrets-chat.vercel.app', "http://localhost:5173"],
-  methods: ["GET", "POST", "DELETE", "PUT"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"]
-}))
-
-
-
-app.use(cookieParser())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
-
-app.get('/', (req, res) => {
-  res.status(200)
-    .json({
-      message: "Server is running here ..."
-    })
-
-})
-
-
-import userRouter from "./src/routes/userRouters.js"
-
-
-app.use('/api/v1/user', userRouter)
-
-app.use(errorHandler)
 
 
 
