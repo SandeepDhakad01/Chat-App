@@ -1,11 +1,10 @@
 import mongoose from "mongoose"
 import http from "http"
 import {Server} from "socket.io"
-import express from "express"
 import {User} from './src/modles/user.model.js'
 import {Conversation} from "./src/modles/conversation.model.js"
 import {Message} from './src/modles/message.model.js'
-
+import app from './app.js'
 
 import dotenv from "dotenv"
 dotenv.config({path:'./.env'})
