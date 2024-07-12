@@ -1,4 +1,5 @@
 
+
 {
   "version": 2,
   "builds": [
@@ -8,6 +9,10 @@
     }
   ],
   "routes": [
+    {
+      "src": "/(.*)", 
+      "dest": "/index.js"
+    },
     {
       "src": "/socket.io/(.*)",
       "dest": "https://secretchat-backend.vercel.app/socket.io/$1",
@@ -19,5 +24,4 @@
     }
   ]
 }
-
 
