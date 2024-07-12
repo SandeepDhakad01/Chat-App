@@ -9,12 +9,12 @@
   ],
   "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "source": "/(.*)",
+      "destination": "/"
     },
     {
-      "src": "/socket.io/(.*)",
-      "dest": "https://secretchat-backend.vercel.app/socket.io/$1",
+      "source": "/socket.io/(.*)",
+      "destination": "https://secretchat-backend.vercel.app/socket.io/$1",
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
