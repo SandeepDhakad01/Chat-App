@@ -7,7 +7,7 @@
       "config": {}
     }
   ],
-  "routes": [
+  "rewrites": [
     {
       "src": "/socket.io/(.*)",
       "dest": "https://secretchat-backend.vercel.app/socket.io/$1",
@@ -16,13 +16,11 @@
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
       }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
     }
-  ],
-  "rewrites": [
-              {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ]
-  }
+  ]
+}
 
