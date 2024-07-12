@@ -11,7 +11,6 @@ dotenv.config({path:'./.env'})
 
 import { getConversation } from "./src/helper/getConversation.js"
 
-export const app=express()
 
 const server=http.createServer(app);
   

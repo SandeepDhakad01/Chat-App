@@ -7,7 +7,7 @@ import {errorHandler} from "./src/middleware/errorHandler.middleware.js"
 import dotenv from "dotenv"
 dotenv.config({path:'./.env'})
 
-const app=express()
+export const app=express()
  
 app.use(cors({
     origin:[process.env.FRONTEND_URL,'https://secrets-chat.vercel.app',"http://localhost:5173"],
