@@ -52,7 +52,7 @@ const Sidebar = () => {
                 setAllUser(conversationUserData)
             })
         }
-    },[socketConnection,user])
+    },[])
 
     const handleLogout = async()=>{
         const url=`${import.meta.env.VITE_BACKEND_URL}/v1/user/logout`;
