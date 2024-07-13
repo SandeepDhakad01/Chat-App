@@ -111,7 +111,7 @@ const ChatPage = () => {
           socketConnection.emit('seen',params.userId);
         
       }
-  },[params?.userId])
+  },[socketConnection,params?.userId,user])
 
   
 
