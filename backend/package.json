@@ -5,11 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
     "build": "tsc",
-=======
-     "build": "tsc",
->>>>>>> dbaab3b9770cce7fcc574cd91d31743be18b3163
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
