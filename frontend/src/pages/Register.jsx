@@ -71,6 +71,7 @@ const RegisterPage = () => {
 
         }
     } catch (error) {
+       console.log(error)
         toast.error(error?.response?.data?.err_message || error.message)
     }
     console.log('data',data)

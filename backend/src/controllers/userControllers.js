@@ -86,12 +86,12 @@ export const logout=asyncHandler(async(req,res,next)=>{
 
 export const updateUserDetails=asyncHandler(async(req,res,next)=>{
   try {
-     const {user,name,profile_pic}=req.body
+     const {Id,name,profile_pic}=req.body
      
      console.log("inside update controller")
      // yaha per validation chalna ha h ki nahi socho ....
 
-     const updatedUser=await User.findByIdAndUpdate(user._id,{
+     const updatedUser=await User.findByIdAndUpdate(Id,{
       name,
       profile_pic
      },

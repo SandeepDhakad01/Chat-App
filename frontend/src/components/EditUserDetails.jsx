@@ -10,8 +10,8 @@ import { setUser } from '../redux/userSlice'
 
 const EditUserDetails = ({onClose,user}) => {
     const [data,setData] = useState({
-        
-        name : user?.user,
+        Id:user._id,
+        name : user?.name,
         profile_pic : user?.profile_pic
     })
     const uploadPhotoRef = useRef()
@@ -21,7 +21,9 @@ const EditUserDetails = ({onClose,user}) => {
         setData((preve)=>{
             return{
                 ...preve,
-                ...user
+                Id:user._id,
+                name : user?.name,
+                profile_pic : user?.profile_pic
             }
         })
     },[user])
