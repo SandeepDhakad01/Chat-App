@@ -52,8 +52,13 @@ axios.defaults.withCredentials = true;
 
 useEffect(() => {
   if (user?._id) {
+<<<<<<< HEAD
    const socketConnection = io("https://chat-app-render-backend-ugfc.onrender.com",{
     // const socketConnection = io(import.meta.env.VITE_SERVER_URL,{
+=======
+   // const socketConnection = io("https://secretchat-backend.vercel.app",{
+    const socketConnection = io(import.meta.env.VITE_SERVER_URL,{
+>>>>>>> dbaab3b9770cce7fcc574cd91d31743be18b3163
       // path: "/socket.io/*",
       transports: ['websocket', 'polling'],
       withCredentials: true,

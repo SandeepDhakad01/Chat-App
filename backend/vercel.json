@@ -8,11 +8,14 @@
   ],
   "rewrites": [
     {
+<<<<<<< HEAD
       "source": "/api/(.*)",
+=======
+      "source": "/(.*)",
+>>>>>>> dbaab3b9770cce7fcc574cd91d31743be18b3163
       "destination": "/"
     }
   ]
 }
-
 
 
