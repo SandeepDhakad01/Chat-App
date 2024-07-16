@@ -10,7 +10,7 @@ export const errorHandler=(err,req,res,next)=>{
     // .json(new ApiError(err.status||500,err.message||"Internal Server Error..."))   // yeh kam nhi kar raha  pata nhi kyu ....
     .json({
         status:err.status||500,
-        message:err.message||"Internal Server Error...",
+        err_message:err.message||"Internal Server Error...",
         success:false,
 
     })

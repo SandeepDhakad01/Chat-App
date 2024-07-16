@@ -66,6 +66,7 @@ const CheckPasswordPage = () => {
             navigate('/')
         }
     } catch (error) {
+      console.log("errrrr:",error)
         toast.error(error?.response?.data?.err_message || error.message)
     }
   }
